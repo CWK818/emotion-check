@@ -39,15 +39,27 @@ pip_install() {
   "${PY}" -m pip install -q --user --break-system-packages "$@"
 }
 
+NEED_MB="${G5_NEED_MB:-1500}"   # 暫存下載＋skill 本體（約 80MB）＋Python 依賴，留足餘裕
+free_mb() { df -Pk "$1" | awk 'NR==2 {print int($4/1024)}'; }
+mkdir -p "$(dirname "${TARGET}")"
+for d in "$(dirname "${TARGET}")" "${TMPDIR:-/tmp}"; do
+  have="$(free_mb "${d}")"
+  if (( have < NEED_MB )); then
+    echo "磁碟空間不足：${d} 所在磁碟只剩約 ${have} MB，安裝需要約 ${NEED_MB} MB。" >&2
+    echo "請先清出空間（Mac：系統設定 → 一般 → 儲存空間），再重新執行本腳本。" >&2
+    exit 1
+  fi
+done
+
 WORK="$(mktemp -d)"
 trap 'rm -rf -- "${WORK}"' EXIT
 
-echo "▶ 下載 ppt-master（${REF}）"
-git clone --quiet --filter=blob:none --no-checkout "${REPO_URL}" "${WORK}/ppt-master"
+echo "▶ 下載 ppt-master（${REF}，只取 skills/ppt-master）"
+git clone --quiet --filter=blob:none --no-checkout --sparse "${REPO_URL}" "${WORK}/ppt-master"
+git -C "${WORK}/ppt-master" sparse-checkout set skills/ppt-master
 git -C "${WORK}/ppt-master" checkout --quiet "${REF}"
 
 echo "▶ 安裝 skill 到 ${TARGET}"
-mkdir -p "$(dirname "${TARGET}")"
 if [[ -d "${TARGET}" ]]; then
   BACKUP="${TARGET}.bak.$(date +%Y%m%d%H%M%S)"
   mv -- "${TARGET}" "${BACKUP}"
