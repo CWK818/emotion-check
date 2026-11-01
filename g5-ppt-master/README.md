@@ -44,8 +44,9 @@ ppt-master **不接受只說模板名字**，請在指令裡給完整路徑。�
 | 校訂語言 | `zh-TW`（首頁要加 `lang="zh-TW"`，已寫進 skill 規則） |
 | 主題字型 | 微軟正黑體；封面與收尾用標楷體 |
 | `notesMasterIdLst` 順序 | ppt-master 匯出的順序本來就合乎 schema；`fix-presentation-order.py` 跑了也不會改動 |
+| **在 PowerPoint 實際開啟** | **通過**（使用者驗收，二〇二六年十一月一日） |
 
-**還沒驗證**：在你的 PowerPoint 裡實際打開。請開 `examples/smoke-test/g5_smoke.pptx` 確認一次——這才是最終驗收標準。
+最終驗收標準「使用者的 PowerPoint 開得起來」已確認通過。
 
 ## 已知限制
 
