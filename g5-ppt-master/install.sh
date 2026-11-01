@@ -24,8 +24,20 @@ while [[ $# -gt 0 ]]; do
   esac
 done
 
-PY="$(command -v python3 || command -v python)"
-[[ -n "${PY}" ]] || { echo "找不到 python3，請先安裝 Python 3.10 以上版本" >&2; exit 1; }
+PY="$(command -v python3 || command -v python || true)"
+[[ -n "${PY}" ]] || { echo "找不到 python3，請先安裝 Python 3.10 以上版本（Mac：brew install python）" >&2; exit 1; }
+if ! "${PY}" -c 'import sys; sys.exit(0 if (3, 10) <= sys.version_info[:2] <= (3, 14) else 1)'; then
+  echo "目前的 python3 是 $("${PY}" -V 2>&1)，ppt-master 需要 3.10–3.14。" >&2
+  echo "Mac 請先執行：brew install python，然後開一個新的終端機視窗再跑一次本腳本。" >&2
+  exit 1
+fi
+command -v git >/dev/null || { echo "找不到 git（Mac：xcode-select --install）" >&2; exit 1; }
+
+pip_install() {
+  # 依序嘗試：一般安裝 → Homebrew 等「受管理環境」（PEP 668）改裝到使用者目錄
+  "${PY}" -m pip install -q "$@" 2>/dev/null && return 0
+  "${PY}" -m pip install -q --user --break-system-packages "$@"
+}
 
 WORK="$(mktemp -d)"
 trap 'rm -rf -- "${WORK}"' EXIT
@@ -44,10 +56,10 @@ fi
 cp -R "${WORK}/ppt-master/skills/ppt-master" "${TARGET}"
 
 echo "▶ 安裝 Python 依賴"
-if ! "${PY}" -m pip install -q -r "${TARGET}/requirements.txt"; then
+if ! pip_install -r "${TARGET}/requirements.txt"; then
   # Debian/Ubuntu 系統套件（例如 blinker）無法被 pip 移除時的退路
-  "${PY}" -m pip install -q --ignore-installed blinker
-  "${PY}" -m pip install -q -r "${TARGET}/requirements.txt"
+  pip_install --ignore-installed blinker
+  pip_install -r "${TARGET}/requirements.txt"
 fi
 
 echo "▶ 完整性檢查"

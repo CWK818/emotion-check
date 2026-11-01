@@ -17,10 +17,12 @@ ppt-master 的做法：AI 先讀懂素材，再把每頁畫成 SVG，最後轉�
 
 ## 安裝
 
-本機（Mac／Linux，需要 Python 3.10 以上與 git）：
+本機（Mac／Linux，需要 Python 3.10–3.14 與 git）。Mac 內建的 python3 是 3.9，太舊，請先 `brew install python`。
+
+把本資料夾解壓縮到「下載項目」後：
 
 ```bash
-bash g5-ppt-master/install.sh
+bash ~/Downloads/g5-ppt-master/install.sh
 ```
 
 裝好後重新啟動 Claude Code。腳本可重複執行；既有的 `~/.claude/skills/ppt-master` 會先備份。
