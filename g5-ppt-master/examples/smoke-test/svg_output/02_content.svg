@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1280 720" data-pptx-page-role="content" font-family="Microsoft JhengHei">
+  <rect id="bg" x="0" y="0" width="1280" height="720" fill="#FFFFFF" data-pptx-role="background"/>
+  <g id="title" data-pptx-bounds="80 60 1120 90">
+    <text x="80" y="125" font-size="42" font-weight="bold" fill="#3A5A40">共學團讓家長從單打獨鬥變成彼此支撐</text>
+  </g>
+  <g id="card-1" data-pptx-bounds="80 200 350 400">
+    <rect x="80" y="200" width="350" height="400" rx="20" fill="#F7F4EF"/>
+    <text x="110" y="270" font-size="30" font-weight="bold" fill="#3A5A40">參與家庭</text>
+    <text x="110" y="350" font-size="48" font-weight="bold" fill="#C8A87C">【待填入】</text>
+    <text x="110" y="420" font-size="22" fill="#2D2A26">以會務系統實數為準</text>
+  </g>
+  <g id="card-2" data-pptx-bounds="465 200 350 400">
+    <rect x="465" y="200" width="350" height="400" rx="20" fill="#F7F4EF"/>
+    <text x="495" y="270" font-size="30" font-weight="bold" fill="#3A5A40">共學據點</text>
+    <text x="495" y="350" font-size="48" font-weight="bold" fill="#C8A87C">【待填入】</text>
+    <text x="495" y="420" font-size="22" fill="#2D2A26">含暖暖蛇與暖青</text>
+  </g>
+  <g id="card-3" data-pptx-bounds="850 200 350 400">
+    <rect x="850" y="200" width="350" height="400" rx="20" fill="#F7F4EF"/>
+    <text x="880" y="270" font-size="30" font-weight="bold" fill="#3A5A40">家長心聲</text>
+    <text x="880" y="340" font-size="24" fill="#2D2A26">「原來我不是一個人<tspan x="880" dy="40">在面對。」</tspan></text>
+    <text x="880" y="440" font-size="20" fill="#3D6B8E">——國小家長（去識別化）</text>
+  </g>
+</svg>

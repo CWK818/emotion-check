@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" lang="zh-TW" viewBox="0 0 1280 720" data-pptx-page-role="cover" font-family="Microsoft JhengHei">
+  <rect id="bg" x="0" y="0" width="1280" height="720" fill="#2C4632" data-pptx-role="background"/>
+  <g id="title" data-pptx-bounds="140 220 1000 200" font-family="DFKai-SB" fill="#FFFFFF" text-anchor="middle">
+    <text x="640" y="300" font-size="64">讓每個孩子都有人陪著長大</text>
+    <text x="640" y="380" font-size="30" fill="#C8A87C">一一五年度共學計畫說明</text>
+  </g>
+  <rect id="rule" x="590" y="430" width="100" height="4" fill="#C8A87C" data-pptx-role="decoration"/>
+  <g id="signature" data-pptx-bounds="440 500 400 60" text-anchor="middle">
+    <text x="640" y="540" font-size="26" fill="#FFFFFF">G5．郭駿武</text>
+  </g>
+</svg>
