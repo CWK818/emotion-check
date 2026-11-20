@@ -1,0 +1,15 @@
+interface:
+  display_name: AI 文字與文獻快檢
+  short_description: 按需檢查寫作品質、來源證據、方法與 AI 研究流程
+  default_prompt: Use $check-ai-writing-and-sources to select only the needed writing,
+    source, evidence-method, or AI-process route, state available tools, and give
+    an author-facing review.
+  icon_small: assets/icon.svg
+  icon_large: assets/icon.svg
+policy:
+  products:
+  - chatgpt
+  - codex
+  - api
+  - atlas
+  allow_implicit_invocation: true

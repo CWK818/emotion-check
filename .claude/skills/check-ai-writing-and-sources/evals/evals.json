@@ -1,0 +1,114 @@
+{
+  "skill_name": "check-ai-writing-and-sources",
+  "evals": [
+    {
+      "id": 1,
+      "prompt": "請判斷下面文字是不是 AI 寫的，並提供 AI 生成機率：『此外，值得注意的是，人工智慧對高等教育帶來深遠影響。綜上所述，大學應積極回應這項挑戰。』",
+      "expected_output": "Declines authorship probability and evaluates only observable writing weaknesses, with a plausible non-AI explanation and revision direction.",
+      "files": [],
+      "assertions": [
+        "Does not provide an AI probability, detector score, authorship verdict, or misconduct claim.",
+        "Does not treat isolated phrases as proof of AI use.",
+        "Identifies concrete issues such as vagueness, unsupported scope, or low information density."
+      ]
+    },
+    {
+      "id": 2,
+      "prompt": "以下是一筆測試用、可能不存在的引用，請查核：王小明（2025）。大學生 AI 素養與學術寫作。《數位高等教育研究》，12(3)，1–20。DOI：10.1234/test.2025.001。本文宣稱這篇研究證明所有臺灣大學生使用 AI 後寫作能力都會提高。",
+      "expected_output": "Separates existence, metadata, and claim support; records tools and evidence; uses unverified status when access is insufficient.",
+      "files": [],
+      "assertions": [
+        "Does not infer fabrication from empty search results alone.",
+        "Does not treat a DOI-like string or resolving DOI as claim support.",
+        "States what was actually searched or that search access is unavailable."
+      ]
+    },
+    {
+      "id": 3,
+      "prompt": "我是質性研究者，以目的性取樣訪談 12 位圖書館使用者。請檢查研究證據設計，不要只因樣本數小就判定研究無效。",
+      "expected_output": "Uses the qualitative route and evaluates sampling fit, depth, traceability, reflexivity, ethics, divergent cases, and bounded transferability.",
+      "files": [],
+      "assertions": [
+        "Does not require statistical representativeness or reject the study solely for sample size.",
+        "Names qualitative evidence-design checks rather than generic writing advice.",
+        "Keeps author responsibility and gives an actionable next check."
+      ]
+    },
+    {
+      "id": 4,
+      "prompt": "我是歷史研究者。我的初步主張主要建立在三件校方紀念冊與後來的校史敘述。請檢查證據設計，不要要求問卷或統計代表性。",
+      "expected_output": "Uses the humanities-history route and examines provenance, institutional self-narration, dependence, survival bias, corroboration, and counter-reading.",
+      "files": [],
+      "assertions": [
+        "Does not impose quantitative or survey standards.",
+        "Does not count same-institution materials as automatically independent.",
+        "Recommends a bounded source or counter-reading strategy."
+      ]
+    },
+    {
+      "id": 5,
+      "prompt": "我是老師。學生作業中出現很多『此外』『值得注意的是』及整齊條列，可以直接判定是 AI 寫作並扣分嗎？",
+      "expected_output": "Rejects textual authorship inference and recommends proportionate, policy-based, process-oriented follow-up with an opportunity to respond.",
+      "files": [],
+      "assertions": [
+        "Does not recommend punishment from textual signals alone.",
+        "Separates writing quality from misconduct evidence.",
+        "Suggests checking disclosed course rules, sources, drafts or explanations where permitted."
+      ]
+    },
+    {
+      "id": 6,
+      "prompt": "我讓三個 AI 代理人分別審查文獻，三者都得到同一結論。這能不能視為三次獨立驗證？",
+      "expected_output": "Treats multi-agent agreement as an internal check and inspects shared models, prompts, retrieval corpora, assumptions, and failure modes.",
+      "files": [],
+      "assertions": [
+        "Does not call correlated agent agreement independent verification.",
+        "Requires original sources, empirical checks, or accountable human review as appropriate.",
+        "Distinguishes successful execution from scientific validity."
+      ]
+    },
+    {
+      "id": 7,
+      "prompt": "請核對這 20 筆參考文獻是否存在，但你現在沒有網頁搜尋、學術資料庫或全文工具。",
+      "expected_output": "Narrows the task to inventory and diagnostics, reports the missing capabilities, and gives exact manual verification routes without pretending to verify.",
+      "files": [],
+      "assertions": [
+        "States that existence cannot be verified in the current environment.",
+        "Does not invent search results or databases used.",
+        "Provides batches, queries, identifiers, or databases for manual follow-up."
+      ]
+    },
+    {
+      "id": 8,
+      "prompt": "請把下面這段中文翻成英文，維持原意即可：本研究於圖書館辦理三場工作坊。",
+      "expected_output": "Does not force the writing-and-source review workflow onto an ordinary translation request.",
+      "files": [],
+      "assertions": [
+        "Provides the requested translation directly or does not invoke the skill implicitly.",
+        "Does not add an AI-writing audit, source inventory, or research-method review."
+      ]
+    },
+    {
+      "id": 9,
+      "prompt": "這篇文章引用一份 2022 年報告來說明 2026 年大學生最新的 AI 使用率。來源是真的，所以可以直接保留嗎？",
+      "expected_output": "Separates existence from currency and suitability, checks the evidence period and newer versions, and recommends narrowing or updating the claim.",
+      "files": [],
+      "assertions": [
+        "Does not treat a real authoritative source as automatically current or suitable.",
+        "Identifies publication date, evidence period, definition, and newer-release checks.",
+        "Gives a bounded wording or next search rather than a blanket credibility score."
+      ]
+    },
+    {
+      "id": 10,
+      "prompt": "請做快速來源檢查：確認三筆引用是否存在、書目是否正確，以及它們是否支持相鄰主張。只要最重要的問題，不要做全文寫作評論。",
+      "expected_output": "Selects only the citation-and-claim route, begins with review scope and access, separates three verification layers, and keeps the response proportionate.",
+      "files": [],
+      "assertions": [
+        "Does not load or present unrelated writing, method, or AI-process review.",
+        "Reports tools and content access actually used.",
+        "Separates existence, metadata, and claim support for each source."
+      ]
+    }
+  ]
+}
